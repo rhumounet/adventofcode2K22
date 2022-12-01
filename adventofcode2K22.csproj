@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.3.1" />
+    <ContentWithTargetPath Include="Le travail\Day1\input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Day1/input.txt</TargetPath>
+    </ContentWithTargetPath>
+    <Content Include="AdventOfCode2K22.cs" />
+    <Content Include=".gitignore" />
+    <Content Include="Le travail\Day1\Day1Solver.cs" />
+    <Content Include="Shared\AbstractSolver.cs" />
+    <Content Include="Shared\ISolver.cs" />
+    <Content Include="Le travail\Day1\Part1Solver.cs" />
+    <Content Include="Program.cs" />
+    <Content Include="Le travail\Day1\Part2Solver.cs" />
+  </ItemGroup>
+</Project>
