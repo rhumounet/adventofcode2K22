@@ -19,5 +19,7 @@
     <Content Include="Le travail\Day2\Part2.Test.cs" />
     <Content Include="SolverBaseTest.cs" />
     <Content Include=".vscode\settings.json" />
+    <Content Include="Le travail\Day15\Part1.Test.cs" />
+    <Content Include="Le travail\Day15\Part2.Test.cs" />
   </ItemGroup>
 </Project>
