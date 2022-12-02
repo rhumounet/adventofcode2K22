@@ -11,39 +11,39 @@
         <PackageReference Include="NUnit3TestAdapter" Version="4.3.1" />
         <ContentWithTargetPath Include="Days/01/input.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>Days/1/input.txt</TargetPath>
+            <TargetPath>Days/01/input.txt</TargetPath>
         </ContentWithTargetPath>
         <ContentWithTargetPath Include="Days/02/input.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>Days/2/input.txt</TargetPath>
+            <TargetPath>Days/02/input.txt</TargetPath>
         </ContentWithTargetPath>
         <ContentWithTargetPath Include="Days/03/input.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>Days/3/input.txt</TargetPath>
+            <TargetPath>Days/03/input.txt</TargetPath>
         </ContentWithTargetPath>
         <ContentWithTargetPath Include="Days/04/input.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>Days/4/input.txt</TargetPath>
+            <TargetPath>Days/04/input.txt</TargetPath>
         </ContentWithTargetPath>
         <ContentWithTargetPath Include="Days/05/input.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>Days/5/input.txt</TargetPath>
+            <TargetPath>Days/05/input.txt</TargetPath>
         </ContentWithTargetPath>
         <ContentWithTargetPath Include="Days/06/input.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>Days/6/input.txt</TargetPath>
+            <TargetPath>Days/06/input.txt</TargetPath>
         </ContentWithTargetPath>
         <ContentWithTargetPath Include="Days/07/input.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>Days/7/input.txt</TargetPath>
+            <TargetPath>Days/07/input.txt</TargetPath>
         </ContentWithTargetPath>
         <ContentWithTargetPath Include="Days/08/input.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>Days/8/input.txt</TargetPath>
+            <TargetPath>Days/08/input.txt</TargetPath>
         </ContentWithTargetPath>
         <ContentWithTargetPath Include="Days/09/input.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-            <TargetPath>Days/9/input.txt</TargetPath>
+            <TargetPath>Days/09/input.txt</TargetPath>
         </ContentWithTargetPath>
         <ContentWithTargetPath Include="Days/10/input.txt">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
