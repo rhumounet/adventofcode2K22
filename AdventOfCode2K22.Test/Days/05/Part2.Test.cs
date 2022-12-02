@@ -6,7 +6,7 @@ namespace Test.Day5;
 [TestFixture]
 public class Part2Test : SolverBaseTest<Part2>
 {
-    public Part2Test() : base(new Part2(), "Days/5/input.txt")
+    public Part2Test() : base(new Part2(), "Days/05/input.txt")
     {
     }
 }

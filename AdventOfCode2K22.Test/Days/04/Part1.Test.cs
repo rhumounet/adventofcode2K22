@@ -1,12 +1,12 @@
-using Day9;
+using Day4;
 using NUnit.Framework;
 
-namespace Test.Day9;
+namespace Test.Day4;
 
 [TestFixture]
 public class Part1Test : SolverBaseTest<Part1>
 {
-    public Part1Test() : base(new Part1(), "Days/9/input.txt")
+    public Part1Test() : base(new Part1(), "Days/04/input.txt")
     {
     }
 }
