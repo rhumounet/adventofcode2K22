@@ -1,3 +1,4 @@
+namespace Day1;
 
 public class Part2Solver : AbstractSolver
 {

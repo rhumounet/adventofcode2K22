@@ -1,4 +1,4 @@
-
+namespace Day1;
 public class Part1Solver : AbstractSolver
 {
     internal override async Task<string> CoreSolve(StreamReader reader)
