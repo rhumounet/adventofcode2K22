@@ -17,7 +17,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <TargetPath>Day2/input.txt</TargetPath>
     </ContentWithTargetPath>
-    <Content Include="AdventOfCode2K22.cs" />
     <Content Include=".gitignore" />
     <Content Include="Le travail\Day1\Day1Solver.cs" />
     <Content Include="Shared\AbstractSolver.cs" />
@@ -27,5 +26,11 @@
     <Content Include="Le travail\Day1\Part2Solver.cs" />
     <Content Include="Le travail\Day2\Part1Solver.cs" />
     <Content Include="Le travail\Day2\Part2Solver.cs" />
+    <Content Include="Le travail\Day1\Part1.Test.cs" />
+    <Content Include="Le travail\Day1\Part1.cs" />
+    <Content Include="Le travail\Day1\Part2.cs" />
+    <Content Include=".vscode\settings.json" />
+    <Content Include="Le travail\Day2\Part1.cs" />
+    <Content Include="Le travail\Day2\Part2.cs" />
   </ItemGroup>
 </Project>

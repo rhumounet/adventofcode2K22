@@ -1,5 +1,5 @@
 namespace Day1;
-public class Part1Solver : AbstractSolver
+public class Part1 : AbstractSolver
 {
     internal override async Task<string> CoreSolve(StreamReader reader)
     {

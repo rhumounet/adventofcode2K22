@@ -1,6 +1,6 @@
 namespace Day2;
 
-public class Part2Solver : AbstractSolver
+public class Part1 : AbstractSolver
 {
     internal override async Task<string> CoreSolve(StreamReader reader)
     {
@@ -11,9 +11,9 @@ public class Part2Solver : AbstractSolver
         {
             if (a == 'A')
             {
-                if (b == 'X') return 0 + 3;
-                if (b == 'Y') return 3 + 1;
-                if (b == 'Z') return 6 + 2;
+                if (b == 'X') return 3 + 1;
+                if (b == 'Y') return 6 + 2;
+                if (b == 'Z') return 0 + 3;
             }
             else if (a == 'B')
             {
@@ -23,9 +23,9 @@ public class Part2Solver : AbstractSolver
             }
             else
             {
-                if (b == 'X') return 0 + 2;
-                if (b == 'Y') return 3 + 3;
-                if (b == 'Z') return 6 + 1;
+                if (b == 'X') return 6 + 1;
+                if (b == 'Y') return 0 + 2;
+                if (b == 'Z') return 3 + 3;
             }
             return 0;
         };
