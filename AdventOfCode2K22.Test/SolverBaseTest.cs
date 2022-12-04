@@ -20,6 +20,7 @@ public class SolverBaseTest<T> where T : AbstractSolver
     [Test]
     public async Task Correct_input()
     {
+        Console.WriteLine($"result: {await _solver.Solve(_path)}");
         Assert.Pass($"result: {await _solver.Solve(_path)}");
     }
 }

@@ -23,5 +23,6 @@
     <Content Include="Le travail\Day15\Part2.Test.cs" />
     <Content Include="Days\Day1\Part1.Test.cs" />
     <Content Include="Days\03\Part1.Test.cs" />
+    <Content Include="Days\04\Part1.Test.cs" />
   </ItemGroup>
 </Project>

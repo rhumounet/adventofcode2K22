@@ -116,5 +116,6 @@
     <Content Include=".vscode\settings.json" />
     <Content Include="Days\03\input.txt" />
     <Content Include="Days\03\Part2.cs" />
+    <Content Include="Days\04\Part1.cs" />
   </ItemGroup>
 </Project>
