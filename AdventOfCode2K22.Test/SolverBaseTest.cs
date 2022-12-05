@@ -1,14 +1,17 @@
+using System.Diagnostics;
 using NUnit.Framework;
 
 [TestFixture]
 public class SolverBaseTest<T> where T : AbstractSolver
 {
     private AbstractSolver _solver;
+    private Stopwatch _stopWatch;
     private string _path;
     public SolverBaseTest(AbstractSolver solver, string path)
     {
         _solver = solver;
         _path = path;
+        _stopWatch = new Stopwatch();
     }
 
     [Test]
@@ -20,8 +23,10 @@ public class SolverBaseTest<T> where T : AbstractSolver
     [Test]
     public async Task Correct_input()
     {
+        _stopWatch.Start();
         var result = await _solver.Solve(_path);
-        Console.WriteLine($"result: {result}");
+        _stopWatch.Stop();
+        Console.WriteLine($"result: {result}, elapsedTime: {_stopWatch.ElapsedMilliseconds}ms");
         Assert.Pass($"result: {result}");
     }
 }
