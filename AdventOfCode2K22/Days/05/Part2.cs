@@ -13,7 +13,7 @@ public class Part2 : AbstractSolver
         // file parsing
         var placementPart = fileContent[0];
         var instructionsPart = fileContent[1];
-        var regex = new Regex(@"\[(.{1})\]");
+        var regexLineOfCargo = new Regex(@"(\[\w{1}\]|\s{3})?\s(\[\w{1}\]|\s{3})?\s(\[\w{1}\]|\s{3})?\s(\[\w{1}\]|\s{3})?\s(\[\w{1}\]|\s{3})?\s(\[\w{1}\]|\s{3})?\s(\[\w{1}\]|\s{3})?\s(\[\w{1}\]|\s{3})?\s(\[\w{1}\]|\s{3})?");
         var dictionary = new Dictionary<int, Stack<char>>{
             { 0, new Stack<char>() },
             { 1, new Stack<char>() },
@@ -28,23 +28,14 @@ public class Part2 : AbstractSolver
         var placementLines = placementPart.Split("\r\n").Reverse().Skip(1).ToArray();
         for (int i = 0; i < placementLines.Length; i++)
         {
-            var currentLine = placementLines[i];
-            var arrangementIndex = 0;
-            var lineIndex = 0;
-            var cargoArrangement = new Dictionary<int, string>();
-            while (lineIndex <= currentLine.Length)
+            var match = regexLineOfCargo.Match(placementLines[i]);
+            if (match.Success && match.Groups.Count == 10)
             {
-                cargoArrangement.Add(arrangementIndex, currentLine.Substring(lineIndex, 3));
-                lineIndex += 4;
-                arrangementIndex++;
-            }
-            for (int j = 0; j < 9; j++)
-            {
-                var match = regex.Match(cargoArrangement[j]);
-                if (match.Success)
+                for (int j = 0; j < match.Groups.Count; j++)
                 {
-                    var value = match.Groups[1].Value[0];
-                    dictionary[j].Push(match.Groups[1].Value[0]);
+                    var cargo = match.Groups[j+1].Value;
+                    if (!string.IsNullOrWhiteSpace(cargo))
+                        dictionary[j].Push(cargo[1]);
                 }
             }
         }
