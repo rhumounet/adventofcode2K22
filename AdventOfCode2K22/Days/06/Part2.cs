@@ -6,6 +6,6 @@ public class Part2 : AbstractSolver
     {
         var content = await reader.ReadToEndAsync();
         //Fais des trucs batard
-        return content;
+        return $"{Helper.Trace(content, 14)}";
     }
 }

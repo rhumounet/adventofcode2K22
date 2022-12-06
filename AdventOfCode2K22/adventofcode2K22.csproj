@@ -119,5 +119,7 @@
     <Content Include="Days\04\Part1.cs" />
     <Content Include="Days\05\Part1.cs" />
     <Content Include="Days\05\Part2.cs" />
+    <Content Include="Days\06\Part1.cs" />
+    <Content Include="Days\06\Part2.cs" />
   </ItemGroup>
 </Project>
