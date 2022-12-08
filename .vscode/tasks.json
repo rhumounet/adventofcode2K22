@@ -23,7 +23,7 @@
             ]
         },
         {
-            "label": "Run all tests for",
+            "label": "Run all tests",
             "type": "shell",
             "command": "./scripts/tests.sh",
             "group": "test"

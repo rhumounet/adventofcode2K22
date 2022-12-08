@@ -25,7 +25,7 @@ public class SolverBaseTest<T> where T : AbstractSolver
         _stopWatch.Start();
         var result = await _solver.Solve(_path);
         _stopWatch.Stop();
-        Console.WriteLine($"{typeof(T).FullName} | result: {result}, elapsedTime: {_stopWatch.ElapsedMilliseconds}ms");
+        Console.WriteLine($"{typeof(T).FullName} | result: {result}, elapsedTime: {_stopWatch.Elapsed.TotalMicroseconds}µs");
         Assert.Pass();
     }
 }
