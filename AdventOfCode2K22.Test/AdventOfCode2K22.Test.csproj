@@ -1,4 +1,3 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -7,22 +6,22 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="NUnit" Version="3.13.3" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.3.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
+    <PackageReference Include="NUnit" Version="3.13.3"/>
+    <PackageReference Include="NUnit3TestAdapter" Version="4.3.1"/>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0"/>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AdventOfCode2K22\adventofcode2K22.csproj" />
-    <Content Include="Le travail\Day1\Part1.Test.cs" />
-    <Content Include="Le travail\Day1\Part2.Test.cs" />
-    <Content Include="Le travail\Day2\Part1.Test.cs" />
-    <Content Include="Le travail\Day2\Part2.Test.cs" />
-    <Content Include="SolverBaseTest.cs" />
-    <Content Include=".vscode\settings.json" />
-    <Content Include="Le travail\Day15\Part1.Test.cs" />
-    <Content Include="Le travail\Day15\Part2.Test.cs" />
-    <Content Include="Days\Day1\Part1.Test.cs" />
-    <Content Include="Days\03\Part1.Test.cs" />
-    <Content Include="Days\04\Part1.Test.cs" />
+    <ProjectReference Include="..\AdventOfCode2K22\adventofcode2K22.csproj"/>
+    <Content Include="Le travail\Day1\Part1.Test.cs"/>
+    <Content Include="Le travail\Day1\Part2.Test.cs"/>
+    <Content Include="Le travail\Day2\Part1.Test.cs"/>
+    <Content Include="Le travail\Day2\Part2.Test.cs"/>
+    <Content Include="SolverBaseTest.cs"/>
+    <Content Include=".vscode\settings.json"/>
+    <Content Include="Le travail\Day15\Part1.Test.cs"/>
+    <Content Include="Le travail\Day15\Part2.Test.cs"/>
+    <Content Include="Days\Day1\Part1.Test.cs"/>
+    <Content Include="Days\03\Part1.Test.cs"/>
+    <Content Include="Days\04\Part1.Test.cs"/>
   </ItemGroup>
 </Project>

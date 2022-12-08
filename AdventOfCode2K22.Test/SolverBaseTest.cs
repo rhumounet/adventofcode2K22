@@ -1,7 +1,6 @@
 using System.Diagnostics;
 using NUnit.Framework;
 
-[TestFixture]
 public class SolverBaseTest<T> where T : AbstractSolver
 {
     private AbstractSolver _solver;
@@ -26,7 +25,7 @@ public class SolverBaseTest<T> where T : AbstractSolver
         _stopWatch.Start();
         var result = await _solver.Solve(_path);
         _stopWatch.Stop();
-        Console.WriteLine($"result: {result}, elapsedTime: {_stopWatch.ElapsedMilliseconds}ms");
-        Assert.Pass($"result: {result}");
+        Console.WriteLine($"{typeof(T).FullName} | result: {result}, elapsedTime: {_stopWatch.ElapsedMilliseconds}ms");
+        Assert.Pass();
     }
 }

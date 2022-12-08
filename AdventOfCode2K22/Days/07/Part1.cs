@@ -10,6 +10,6 @@ public class Part1 : AbstractSolver
         var commandLines = content.Split("\r\n");
         var root = Helper.CreateTree(commandLines);
         var nodes = root.GetMaximumSizeNodes(100000);
-        return content;
+        return $"{nodes.Sum(n => n.Size)}";
     }
 }
