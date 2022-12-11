@@ -11,7 +11,6 @@ public class Part2 : AbstractSolver
         var nooprgx = new Regex("^noop");
         var addxrgx = new Regex(@"^addx (-)?(\d*)");
         var cycles = new Queue<int>();
-        var list = new List<int>();
         int register = 1;
         int lineIndex = 0;
         Match match;
@@ -20,6 +19,7 @@ public class Part2 : AbstractSolver
         while (cycles.Any() || i <= instructions.Length)
         {
             if (i < instructions.Length)
+            {
                 if ((match = nooprgx.Match(instructions[i])).Success)
                 {
                     cycles.Enqueue(0);
@@ -30,6 +30,7 @@ public class Part2 : AbstractSolver
                     cycles.Enqueue(0);
                     cycles.Enqueue(int.Parse($"{match.Groups[1].Value}{match.Groups[2].Value}"));
                 }
+            }
             char toDraw;
             if (lineIndex <= register + 1 && lineIndex >= register - 1)
                 toDraw = '#';
@@ -38,15 +39,12 @@ public class Part2 : AbstractSolver
             if (lineIndex == 0)
                 stringBuilder.AppendLine();
             stringBuilder.Append(toDraw);
-            if ((i + 1) % 40 == 20)
-                list.Add((i + 1) * register);
             if (cycles.Any())
                 register += cycles.Dequeue();
 
             i++;
             lineIndex += lineIndex == 39 ? -39 : 1;
         }
-        Console.Write(stringBuilder.ToString());
-        return $"{list.Sum()}";
+        return $"{stringBuilder.ToString()}";
     }
 }
