@@ -12,12 +12,11 @@ public class Part1 : AbstractSolver
         for (int i = 0; i < monkeyStrings.Length; i++)
         {
             var props = monkeyStrings[i].Split("\r\n");
-            monkeys.Add(i, new Monkey(props[2].Substring(13), props[3].Substring(8))
+            monkeys.Add(i, new Monkey(props[2][13..], props[3][8..])
             {
-                Items = new Queue<double>(props[1]
-                    .Substring(18)
+                Items = new Queue<double>(props[1][18..]
                     .Split(',')
-                    .Select(item => double.Parse(item))),
+                    .Select(double.Parse)),
                 Targets = new Dictionary<bool, int>{
                     { true, int.Parse($"{props[4].Last()}") },
                     { false, int.Parse($"{props[5].Last()}") },

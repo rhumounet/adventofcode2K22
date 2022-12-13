@@ -12,7 +12,7 @@ public class Part2 : AbstractSolver
         var actualSize = root.Size;
         var availableSize = totalSize - actualSize;
         var targetDirSize = targetSize - availableSize;
-        var node = root.GetMinimumTreeSize(targetDirSize).OrderBy(n => n.Size).FirstOrDefault();
+        var node = root.GetMinimumTreeSize(targetDirSize).MinBy(n => n.Size);
         return $"{node?.Size ?? 0}";
     }
 }

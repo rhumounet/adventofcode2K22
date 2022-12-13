@@ -4,14 +4,12 @@ public abstract class AbstractSolver : ISolver {
     {
         if (string.IsNullOrEmpty(input))
         {
-            throw new ArgumentNullException("input");
+            throw new ArgumentNullException(nameof(input));
         }
         else
         {
-            using (StreamReader reader = new StreamReader(input))
-            {
-                return await CoreSolve(reader);
-            }
+            using var reader = new StreamReader(input);
+            return await CoreSolve(reader);
         }
     }
 

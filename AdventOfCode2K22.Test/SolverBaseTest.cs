@@ -3,9 +3,9 @@ using NUnit.Framework;
 
 public class SolverBaseTest<T> where T : AbstractSolver
 {
-    private AbstractSolver _solver;
-    private Stopwatch _stopWatch;
-    private string _path;
+    private readonly AbstractSolver _solver;
+    private readonly Stopwatch _stopWatch;
+    private readonly string _path;
     public SolverBaseTest(AbstractSolver solver, string path)
     {
         _solver = solver;
