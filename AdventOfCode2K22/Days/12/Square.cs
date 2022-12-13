@@ -1,18 +1,26 @@
+using System.Runtime.CompilerServices;
+
 public class Square
 {
-    public int X { get; set; }
-    public int Y { get; set; }
-    public int FromStart { get; }
-    public int ToTarget { get; private set; }
-    public Square(int x, int y, Square? start = null, Square? target = null)
+    public int X { get; }
+    public int Y { get; }
+    public int Elevation { get; }
+    public int G { get; set; }
+    public int H { get; private set; }
+    public int F => G + H;
+    public Square? Parent { get; set; }
+
+    public Square(int elevation, int x, int y, Square? target = null, Square? parent = null)
     {
+        Elevation = elevation;
         X = x;
         Y = y;
-        FromStart = start != null ? Math.Abs(start.X - X) + Math.Abs(start.Y - Y) : 0;
-        ToTarget = target != null ? Math.Abs(target.X - X) + Math.Abs(target.Y - Y) : 0;
+        H = target != null ? Math.Abs(target.X - X) + Math.Abs(target.Y - Y) : 0;
+        Parent = parent;
     }
+
     public void SetTargetDistance(Square target)
     {
-        ToTarget = Math.Abs(target.X - X) + Math.Abs(target.Y - Y);
+        H = Math.Abs(target.X - X) + Math.Abs(target.Y - Y);
     }
 }
