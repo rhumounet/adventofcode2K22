@@ -1,11 +1,21 @@
 namespace Day13;
 
-public class Part1 : AbstractSolver 
+public class Part1 : AbstractSolver
 {
-    internal override async Task<string> CoreSolve(StreamReader reader) 
+    internal override async Task<string> CoreSolve(StreamReader reader)
     {
         var content = await reader.ReadToEndAsync();
-        //Fais des trucs batard
-        return content;
+        var pairs = content.Split("\r\n\r\n");
+        var orderedIndexes = new HashSet<int>();
+        var values = new List<(List<DynamicValue>, List<DynamicValue>)>();
+        for (int i = 0; i < pairs.Length; i++)
+        {
+            var LR = pairs[i].Split("\r\n");
+            var left = DynamicValueHelper.Parse(LR[0]);
+            var right = DynamicValueHelper.Parse(LR[1]);
+            values.Add((left, right));
+            if (left.CompareOrder(right)) orderedIndexes.Add(i + 1);
+        }
+        return $"{orderedIndexes.Sum()}";
     }
 }
