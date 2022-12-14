@@ -34,40 +34,37 @@ public static class DynamicValueHelper
         return baseArray.Items;
     }
 
-    public static bool CompareOrder(this List<DynamicValue> left, List<DynamicValue> right)
+    public static int CompareOrder(this List<DynamicValue> left, List<DynamicValue> right)
     {
-        if (left.Count == 0) return true;
-        if (right.Count == 0) return false;
-
-        for (int i = 0; i < left.Count; i++)
+        if (left.Count == 0) return 1;
+        if (right.Count == 0) return -1;
+        for (var i = 0; i < left.Count; i++)
         {
-            if (right.Count <= i) return false;
+            if (right.Count <= i) return 1;
             if (left[i].Value.HasValue && right[i].Value.HasValue)
             {
-                if (left[i].Value > right[i].Value) return false;
-                else if (left[i].Value < right[i].Value) return true;
-                else continue;
+                if (left[i].Value > right[i].Value) return -1;
+                if (left[i].Value < right[i].Value) return 1;
+                return 0;
             }
-            else if (left[i].Value.HasValue)
+            int value;
+            if (left[i].Value.HasValue)
             {
                 var surround = new DynamicValue();
                 surround.Items.Add(left[i]);
-                if (CompareOrder(surround.Items, right[i].Items)) continue;
-                else if (i == left.Count - 1) return false;
+                if ((value = CompareOrder(surround.Items, right[i].Items)) != 0) return value;
             }
             else if (right[i].Value.HasValue)
             {
                 var surround = new DynamicValue();
                 surround.Items.Add(right[i]);
-                if (CompareOrder(left[i].Items, surround.Items)) continue;
-                else if (i == left.Count - 1) return false;
+                if ((value = CompareOrder(left[i].Items, surround.Items)) != 0) return value;
             }
             else if (!left[i].Value.HasValue && !right[i].Value.HasValue)
             {
-                if (CompareOrder(left[i].Items, right[i].Items)) continue;
-                else if (i == left.Count - 1) return false;
+                if ((value = CompareOrder(left[i].Items, right[i].Items)) != 0) return value;
             }
         }
-        return left.Count < right.Count;
+        return left.Count < right.Count ? 1 : -1;
     }
 }
