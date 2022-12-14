@@ -24,7 +24,7 @@ public class Part1 : AbstractSolver
         int g = 0;
         while (actives.Any())
         {
-            current = actives.OrderByDescending(x => x.F).Last();
+            current = actives.OrderBy(x => x.F).First();
             if (current.X == targetSquare.X && current.Y == targetSquare.Y)
             {
                 break;
