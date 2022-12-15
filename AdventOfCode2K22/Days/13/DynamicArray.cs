@@ -6,7 +6,7 @@ public class DynamicValue
 
 public static class DynamicValueHelper
 {
-    public static List<DynamicValue> Parse(string input)
+    public static DynamicValue Parse(string input)
     {
         var currents = new Stack<DynamicValue>();
         var baseArray = new DynamicValue();
@@ -23,7 +23,15 @@ public static class DynamicValueHelper
             }
             if (int.TryParse(input[i].ToString(), out int value))
             {
-                currentArray.Items.Add(new DynamicValue { Value = value });
+                if (int.TryParse($"{input[i + 1]}", out int zero))
+                {
+                    currentArray.Items.Add(new DynamicValue { Value = 10 });
+                    i++;
+                }
+                else
+                {
+                    currentArray.Items.Add(new DynamicValue { Value = value });
+                }
             }
             if (input[i] == ']')
             {
@@ -31,40 +39,43 @@ public static class DynamicValueHelper
                 currentArray = currents.Peek();
             }
         }
-        return baseArray.Items;
+        return baseArray;
     }
 
-    public static int CompareOrder(this List<DynamicValue> left, List<DynamicValue> right)
+    public static int CompareOrder(this DynamicValue left, DynamicValue right)
     {
-        if (left.Count == 0) return 1;
-        if (right.Count == 0) return -1;
-        for (var i = 0; i < left.Count; i++)
+        int value = 0;
+        if (left.Value.HasValue && right.Value.HasValue)
         {
-            if (right.Count <= i) return 1;
-            if (left[i].Value.HasValue && right[i].Value.HasValue)
+            int? diff = left.Value - right.Value;
+            switch (diff)
             {
-                if (left[i].Value > right[i].Value) return -1;
-                if (left[i].Value < right[i].Value) return 1;
-                return 0;
-            }
-            int value;
-            if (left[i].Value.HasValue)
-            {
-                var surround = new DynamicValue();
-                surround.Items.Add(left[i]);
-                if ((value = CompareOrder(surround.Items, right[i].Items)) != 0) return value;
-            }
-            else if (right[i].Value.HasValue)
-            {
-                var surround = new DynamicValue();
-                surround.Items.Add(right[i]);
-                if ((value = CompareOrder(left[i].Items, surround.Items)) != 0) return value;
-            }
-            else if (!left[i].Value.HasValue && !right[i].Value.HasValue)
-            {
-                if ((value = CompareOrder(left[i].Items, right[i].Items)) != 0) return value;
+                case < 0: return 1;
+                case > 0: return -1;
+                default: return 0;
             }
         }
-        return left.Count < right.Count ? 1 : -1;
+        else if (!left.Value.HasValue && !right.Value.HasValue)
+        {
+            for (var i = 0; i < left.Items.Count; i++)
+            {
+                if (right.Items.Count <= i) return -1;
+                value = CompareOrder(left.Items[i], right.Items[i]);
+                if (value != 0) return value;
+            }
+            return left.Items.Count == right.Items.Count ? 0 : 1;
+        }
+        else if (left.Value.HasValue)
+        {
+            var surround = new DynamicValue();
+            surround.Items.Add(left);
+            return CompareOrder(surround, right);
+        }
+        else
+        {
+            var surround = new DynamicValue();
+            surround.Items.Add(right);
+            return CompareOrder(left, surround);
+        }
     }
 }
