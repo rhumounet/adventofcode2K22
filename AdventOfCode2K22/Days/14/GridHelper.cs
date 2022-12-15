@@ -1,8 +1,7 @@
 public static class GridHelper
 {
-    public static void PrintThisShit(HashSet<(int, int)> allRocks, int lengthX, int lengthY, char[,] grid)
+    public static void PrintThisShit(HashSet<(int, int)> allRocks, int lengthX, int lengthY, char[,] grid, int minX)
     {
-        var minX = 0;
         var minY = 0;
         var stringBuilder = new StringBuilder();
         for (int y = minY; y < lengthY; y++)
@@ -17,9 +16,10 @@ public static class GridHelper
         writer.Write(stringBuilder.ToString());
     }
 
-    public static int ItShallRainOnThesePeasants(int lengthX, int lengthY, char[,] grid, int part)
+    public static int ItShallRainOnThesePeasants(int lengthX, int lengthY, char[,] grid, int part, out int minX)
     {
         int total = 0;
+        minX = int.MaxValue;
         bool noOverflow = true;
         while (noOverflow)
         {
@@ -70,6 +70,7 @@ public static class GridHelper
             if (noOverflow)
             {
                 grid[cursorX, cursorY] = '.';
+                if (minX > cursorX) minX = cursorX;
                 total++;
             }
         }

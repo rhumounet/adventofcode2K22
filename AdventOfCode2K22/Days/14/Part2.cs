@@ -11,10 +11,10 @@ public class Part2 : AbstractSolver
         var lengthY = allRocks.Max(r => r.Item2) + 3;
 
         char[,] grid = GridHelper.WhereDoesShitGo(allRocks, lengthX, lengthY, 2);
-        var total = GridHelper.ItShallRainOnThesePeasants(lengthX, lengthY, grid, 2);
+        var total = GridHelper.ItShallRainOnThesePeasants(lengthX, lengthY, grid, 2, out int minX);
 
         //optional but cute
-        GridHelper.PrintThisShit(allRocks, lengthX, lengthY, grid);
+        GridHelper.PrintThisShit(allRocks, lengthX, lengthY, grid, minX);
 
         return $"{total}";
     }

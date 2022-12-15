@@ -9,12 +9,11 @@ public class Part1 : AbstractSolver
         HashSet<(int, int)> allRocks = GridHelper.GETALLTHEFUCKINGROCKS(rockBlocks);
         var lengthX = allRocks.Max(r => r.Item1) + 1;
         var lengthY = allRocks.Max(r => r.Item2) + 1;
-
         char[,] grid = GridHelper.WhereDoesShitGo(allRocks, lengthX, lengthY, 1);
-        var total = GridHelper.ItShallRainOnThesePeasants(lengthX, lengthY, grid, 1);
+        var total = GridHelper.ItShallRainOnThesePeasants(lengthX, lengthY, grid, 1, out int minX);
 
         //optional but cute
-        GridHelper.PrintThisShit(allRocks, lengthX, lengthY, grid);
+        GridHelper.PrintThisShit(allRocks, lengthX, lengthY, grid, minX);
 
         return $"{total}";
     }
