@@ -6,9 +6,14 @@ public class Part1 : AbstractSolver
     {
         var content = await reader.ReadToEndAsync();
         var lines = content.Split("\r\n");
+        var noBeacons = RegisterBeaconRanges(lines, 2000000);
+        return $"{noBeacons.Count(c => c.Item2 == 2000000)}";
+    }
+
+    private static HashSet<(int, int)> RegisterBeaconRanges(string[] lines, int? yToInspect)
+    {
         var noBeacons = new HashSet<(int, int)>();
         var beacons = new HashSet<(int, int)>();
-        var yToInspect = 2000000;
         for (int i = 0; i < lines.Length; i++)
         {
             var parts = lines[i].Split(": ");
@@ -19,30 +24,36 @@ public class Part1 : AbstractSolver
             var beacon = (int.Parse(nearestBeacon[0][2..]), int.Parse(nearestBeacon[1][2..]));
             beacons.Add(beacon);
             var distance = sensor.Distance(beacon);
-            for (int y = 0; y <= distance; y++)
+            if (yToInspect.HasValue)
             {
-                if (sensor.Item2 - y == yToInspect)
+                for (int y = 0; y <= distance; y++)
                 {
-                    for (int x = 0; x <= distance - y; x++)
+                    if (sensor.Item2 - y == yToInspect.Value)
                     {
-                        noBeacons.Add((sensor.Item1 + x, yToInspect));
-                        noBeacons.Add((sensor.Item1 - x, yToInspect));
+                        for (int x = 0; x <= distance - y; x++)
+                        {
+                            noBeacons.Add((sensor.Item1 + x, yToInspect.Value));
+                            noBeacons.Add((sensor.Item1 - x, yToInspect.Value));
+                        }
+                        break;
                     }
-                    break;
-                }
-                
-                if (sensor.Item2 + y == yToInspect)
-                {
-                    for (int x = 0; x <= distance - y; x++)
+                    if (sensor.Item2 + y == yToInspect.Value)
                     {
-                        noBeacons.Add((sensor.Item1 + x, yToInspect));
-                        noBeacons.Add((sensor.Item1 - x, yToInspect));
+                        for (int x = 0; x <= distance - y; x++)
+                        {
+                            noBeacons.Add((sensor.Item1 + x, yToInspect.Value));
+                            noBeacons.Add((sensor.Item1 - x, yToInspect.Value));
+                        }
+                        break;
                     }
-                    break;
                 }
             }
+            else
+            {
+                
+            }
         }
-        return $"{noBeacons.Except(beacons).Count(c => c.Item2 == yToInspect)}";
+        return noBeacons.Except(beacons).ToHashSet();
     }
 }
 
