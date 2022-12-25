@@ -4,8 +4,9 @@ public class Part2 : AbstractSolver
 {
     internal override async Task<string> CoreSolve(StreamReader reader) 
     {
-        var content = await reader.ReadToEndAsync();
-        //Fais des trucs batard
-        return content;
+        var jetPattern = await reader.ReadToEndAsync();
+        double finalHeight = TetrisPlayer.PlayButBetter(jetPattern, 1000000000000);
+
+        return $"{finalHeight}";
     }
 }
